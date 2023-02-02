@@ -1,0 +1,23 @@
+{
+  "name": "desweb1_tarseman3",
+  "version": "1.0.0",
+  "description": "TareaSemana3DesarrolloWeb1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlieSting/DesWeb1_TarSeman3.git"
+  },
+  "author": "Carlos.m",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlieSting/DesWeb1_TarSeman3/issues"
+  },
+  "homepage": "https://github.com/CharlieSting/DesWeb1_TarSeman3#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
