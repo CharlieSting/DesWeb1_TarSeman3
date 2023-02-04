@@ -476,6 +476,120 @@ app.delete('/api/asunto/:num_expediente', (req, res) => {
     });
 });
 
+// api.get procurador_asunto
+app.get('/api/procurador_asunto/', (req, res) => {
+    let con = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "might361#$1Ty2Q",
+        database: "ejercicio3_desarrolloweb1"
+    });
 
+    let sql = "select * from tabla_procurador_asunto";
+
+    con.connect(function (err) {
+
+        if (err) {
+            res.send(err);
+        } else {
+            con.query(sql, function (err, result) {
+
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            });
+        }
+    });
+});
+
+// api.post procurador_asunto
+
+app.post('/api/procurador_asunto/', (req, res) => {
+    let con = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "might361#$1Ty2Q",
+        database: "ejercicio3_desarrolloweb1"
+    });
+
+    let sql = "insert into tabla_procurador_asunto" +
+        ("num_expediente, id_procurador")
+        + "values(?,?)";
+
+    let parametros = [req.body.num_expediente, req.body.id_procurador];
+
+    con.connect(function (err) {
+
+        if (err) {
+            res.send(err);
+        } else {
+            con.query(sql, parametros, function (err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            });
+        }
+    });
+});
+
+// api.put procurador_asunto
+app.put('/api/procurador_asunto/:num_expediente', (req, res) => {
+    let con = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "might361#$1Ty2Q",
+        database: "ejercicio3_desarrolloweb1"
+    });
+
+    let sql = "update tabla_procurador_asunto set id_procurador = ? where num_expediente = ?";
+    let parametros = [req.body.id_procurador, req.params.num_expediente];
+
+    con.connect(function (err) {
+
+        if (err) {
+            res.send(err);
+        } else {
+            con.query(sql, parametros, function (err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            });
+        }
+    });
+});
+
+// api.delete procurador_asunto
+app.delete('/api/procurador_asunto/:num_expediente', (req, res) => {
+    let con = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "might361#$1Ty2Q",
+        database: "ejercicio3_desarrolloweb1"
+    });
+
+    let sql = "delete from tabla_procurador_asunto where num_expediente = ?";
+    let parametros = [req.params.num_expediente];
+
+    con.connect(function (err) {
+
+        if (err) {
+            res.send(err);
+        } else {
+            con.query(sql, parametros, function (err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            });
+        }
+    });
+});
 
 app.listen(3000);
